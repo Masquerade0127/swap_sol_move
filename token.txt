@@ -1,0 +1,3 @@
+added QmWD8EzvSEebKEnwnsqCxgVo3BVtHfQzgBJsxs8WR2iJQd token.json
+
+https://ipfs.io/ipfs/QmWD8EzvSEebKEnwnsqCxgVo3BVtHfQzgBJsxs8WR2iJQd
