@@ -4,7 +4,7 @@ import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { mplCandyMachine } from "@metaplex-foundation/mpl-candy-machine";
 import  "@solana/web3.js";
 
-const umi = createUmi('https://api.testnet.solana.com');// connect testnet environment
+const umi = createUmi('https://api.devnet.solana.com');// connect testnet environment
 const secret = require("./privateKeyArray.json");
 const userWallet = umi.eddsa.createKeypairFromSecretKey(new Uint8Array(secret));
 const userWalletSigner = createSignerFromKeypair(umi, userWallet);
@@ -13,6 +13,8 @@ const metadata = {
     symbol: "MOVE",
     uri: "https://ipfs.io/ipfs/QmWD8EzvSEebKEnwnsqCxgVo3BVtHfQzgBJsxs8WR2iJQd",
 };
+
+console.log("metadata config done");
 
 const mint = generateSigner(umi);
 umi.use(signerIdentity(userWalletSigner));
