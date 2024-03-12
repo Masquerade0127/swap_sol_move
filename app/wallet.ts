@@ -14,7 +14,7 @@ import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 const space = 0;
 // Seed the created account with lamports for rent exemption
 (async () => {
-    const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+    const connection = new Connection(clusterApiUrl("testnet"), "confirmed");
     const keypair = Keypair.generate();
 
     const publicKey = keypair.publicKey;

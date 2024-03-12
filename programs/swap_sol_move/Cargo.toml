@@ -17,5 +17,6 @@ default = []
 
 [dependencies]
 anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
 mpl-candy-machine = "4.6.0"
 mpl-token-metadata = "4.1.2"
