@@ -34,7 +34,7 @@ const space = 0;
         if (err) throw err;
         console.log('Wrote secret key to privateKeyArray.json.');
     });
-    const airDropSignature = connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
+    const airDropSignature = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL/2);
 
     try {
         const transactionId = await airDropSignature;
@@ -43,9 +43,10 @@ const space = 0;
     } catch (exception) {
         console.log(exception);
     }
+    console.log("request rent before");
     const rentExemptionAmount = await connection.getMinimumBalanceForRentExemption(space);
     const newAccountPubkey = Keypair.generate();
-
+    console.log("request rent after");
     const createAccountParams = {
         fromPubkey: publicKey,
         newAccountPubkey: newAccountPubkey.publicKey,
@@ -53,14 +54,13 @@ const space = 0;
         space,
         programId: SystemProgram.programId,
     };
-
+    console.log("aaa");
     const createAccountTransaction = new Transaction().add(
         SystemProgram.createAccount(createAccountParams)
     );
-
+    console.log("bbb");
     await sendAndConfirmTransaction(connection, createAccountTransaction, [
-        keypair,
-        newAccountPubkey,
+        keypair
     ]);
 
     console.log("Generate transaction account done");
